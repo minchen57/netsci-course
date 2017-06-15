@@ -1,0 +1,612 @@
+\documentclass[12pt]{article}
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{lscape}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{footnote}
+\setcounter{MaxMatrixCols}{10}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{assumption}{Assumption}
+
+
+\makeatletter
+\def\s@btitle{\relax}
+\def\subtitle#1{\gdef\s@btitle{#1}}
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+                \if\s@btitle\relax
+                \else\typeout{[subtitle]}%
+                        \vskip .5pc
+                        \begin{large}%
+                                \textsl{\s@btitle}%
+                                \par
+                        \end{large}%
+                \fi
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\makeatother
+
+\begin{document}
+
+\title{Impact of Migration From Mainland China on the HK's Labor Market}
+\author{Min Chen\\Arizona State University}
+\date{9/5/2013}
+\maketitle
+\bigskip
+\begin{abstract}
+This paper develops a simple decision model for potential migrants with managerial ability and risk aversion parameter exogenously given. I calibrate this model to the Hong Kong 1971 Census Data to quantify the effect of migration from mainland China on the HK's labor market. I expect \footnote{the paper is incomplete by now} to find that the migration substantially changed the occupation choice in Hong Kong as well as the equilibrium wage and such changes result in an increase in the social welfare. 
+\end{abstract}
+\pagebreak
+\tableofcontents
+\listoffigures
+\listoftables
+\pagebreak
+
+\section{Introduction}
+\subsection{A brief literature review}
+\paragraph{}
+There is a substantial literature on migration and most of the work focuses on patterns in the data: for example more educated people actually made decision to migrate(Kennan and Walker, 2011). Kennan and Walker mainly develop a model of optimal sequences of migration decisions, focusing on expected income as the main economic influence on migration. Other authors including Blanchard and Katz(1992), and Gallin (2004) demonstrated and modeled that income differentials are considered as a main motive in making migration decisions. On the other hand, some work has been done on the impact of migration flows on the local labor market. Friedberg (2001) found that no adverse impact of immigration on native outcomes of the Israeli labor market. A more recent paper by Strobl and Valfort (2013) suggests a larger negative impact of weather-induced internal migration in Uganda than the one documented for developed countries. Grossmann and Stadelmann (2013), however, showed that international migration of high-skilled workers may trigger productivity effects at the macro level such that the wage rate of skilled workers increases in host countries.
+
+\subsection{Background}
+\paragraph{}
+This paper focus on the huge wave of migration from mainland China to Hong Kong during the period from 1960 to 1980. This is worth investigating for several reasons. The first reason is the unusual magnitude of migration flow. According to the statistics by the UN Population Division, the population in HK was around 2 million in 1950, 3 million in 1960 and nearly 6 million in 1980. Estimated migrants from China during that period were nearly 1 million. This estimate may not be official since such migration was illegal and China did not keep record of the actual number of people went to Hong Kong. However, UN Population Division has the net migrants statistics for Hong Kong during that period, which is around 0.8 million. This can reflect the large magnitude of migration since it is after subtraction of population outflow like in 1967 when  large number of HK citizens move to countries in Southeast Asia, South Africa or South American due to a series of large-scale riots. In Friedberg's (2001) paper the immigration increased population of Israel by 12 percent. Compared to this fact, migration to Hong Kong has a much bigger impact on the population. 
+
+\paragraph{}
+A second reason is that Hong Kong is a comparatively small economy with limited land and space. Such a big flow of migration will certainly affect the economy more severely than other much bigger hosting countries like the United States. Another reason that this topic may be intriguing takes into account the formation of the migration flow. There are different reasons why mainland people would risk their lives and tried to migrate during that 20 years. Some moved because of the terrible living conditions in mainland for example the Three year of Great Chinese Famine in the early 1960s. The wage in Hong Kong at that time is around 100 times than that in mainland, which was very attractive for the poor people struggled to survive in Guangdong Province (adjacent to Hong Kong). There are also people migrating to Hong Kong due to political reasons. However, on average, the migrants are believed to have quite low level of education but with a spirit of adventure. The formation of migration flow may differ from time to time depending on change of cost of moving, repatriation rate, and announcement of new policies. A final point to mention is that Hong Kong experienced a fast economy growth during the 20 years and according to a survey 40 of 100 the most wealthy people at the end of 20 century in Hong Kong are migrants from that period. These would suggest that migrants might make a difference in the Hong Kong's economy and an analysis on the impact on the labor market could be the first step to understand the big picture.
+
+\paragraph{}
+Another point to mention is that I am not considering the new immigration wave from mainland to Hong Kong after 1980. Since the Open Policy in China was established in 1978, after which there is a huge impact of outsourcing to China on Hong Kong's labor market (Hsieh and Woo, 2005). Therefore, I focus on the immigration before 1980 to avoid disentangling the impacts of outsourcing and immigration on the labor market. 
+
+
+
+\subsection{Methods}
+\paragraph{}
+I will develop a model that captures the mainland agent's migration choice in the first stage and occupation choice of agents in Hong Kong including migrants and local people in the second stage. The migration choice will "`select"' certain range of types of the agent migrating to Hong Kong and such decision also depends on the cost of migration and repatriation rate. In the second stage, agents are choosing between being a full-time entrepreneur, self-employed entrepreneur or worker based on their managerial ability and level of risk aversion. A simplified version of span-of-control model will be applied in this stage. 
+\paragraph{}
+I will use the Hong Kong Census Data 1971 to calibrate the parameters in the model at equilibrium.  According to the data description, immigrants from China are divided into 6 categories according to their places of origin. The cost of migration from each of the 6 areas will be estimated by analyzing the migration rate and occupational choices of agents from these areas. The data set will be decried in details in section 3. 
+\paragraph{}
+After calibration, I will change the parameter values like the repatriation rate and calculate the new equilibrium predicted by the model. When the repatriation rate is 1, which means no migration is possible, then the result could be a prediction of the labor market situation when there are no migration. This will addresses the impact of migration. I may also set the repatriation rate to 0 to evaluate the situation where Hong Kong government allows free flow of immigration and the consequences caused by that. Further, comparative statics questions could be asked by changing other parameter value such as migration cost. Further, I will introduce some geographic discrimination policies for example, setting different repatriation rate for agents from different areas and evaluate the impact of such policy to the labor market in Hong Kong. 
+
+\paragraph{}
+In the following section, I will specify the model for analysis. Section 3 will describe the data set and Section 4 will introduce the assumptions and results of calibration. Main result of the impact on labor market and other comparative statics results will be discussed in section 5 and section 6 concludes.
+\pagebreak
+
+\section{The Model}
+\paragraph{}
+Consider the version of Lucas (1978) span-of-control model without physical capital but taking into account self-employment. The model describes a two-stage decision problem: in the first stage, agents from mainland China choose to migrate to Hong Kong  and in the second stage, all agents in Hong Kong (including the migrants and local people) make occupational choices: to be full-time entrepreneurs, self-employed or workers while the mainland agents who choose not to migrate will be workers. All agents only count utility of the second stage. 
+
+\paragraph{}
+Agents differ ex ante in their entrepreneurial ability ($z$), preference parameter ($\theta$), and cost of migration ($c$). Agents maximize their utility functions in the following form:\\
+\bigskip
+\[ u(C) = \left\{ 
+  \begin{array}{l l}
+    \frac{C^{1-\theta}-1}{1-\theta} & \quad \text{if $\theta\neq1$ }\\
+    \mathrm{ln}(C) & \quad \text{if $\theta=1$ }
+  \end{array} \right.\]
+
+\bigskip
+The budget constraint is 
+\begin{align*} 
+0\leq C \leq I-c
+\end{align*}
+\paragraph{}
+where $C$ is consumption, $I$ is income of the following two forms: wage or profit from running businesses, and $c$ is any possible migration cost, which is zero for local agents and positive for mainland agents. $\theta \in R$ is the preference parameter reflecting agents' relative risk aversion and higher $\theta$ corresponds to higher degree of risk aversion. $z$ denotes agents' managerial skill and takes value from $[0,+\infty]$. When choosing to be a worker, the agent forgoes his ability $z$ and earns a wage ($W$ in Hong Kong and $W_0$ in mainland)
+
+
+
+\bigskip
+\subsection{Entrepreneur's Technology}
+\paragraph{}
+Each entrepreneur has access to a span-of-control technology:
+\begin{align*}
+y=A_e z^{1-\gamma}n^{\gamma}\epsilon_e
+\end{align*}
+\paragraph{}
+$\epsilon_e$ is a positive production shock for entrepreneurs with the support $[0,+\infty)$, c.d.f $F(\cdot)$ and p.d.f $f(\cdot)$. $A_e$ is the total factor productivity for entrepreneurs. The decision of labor demand is made after the realization of the shock. Given an entrepreneur's ability, wage and production shock,  the profit maximization problem is written in the following:
+\begin{align*}
+\pi(z,W,\epsilon)=\max_n \quad A_e z^{1-\gamma}n^{\gamma}\epsilon_e-nW
+\end{align*}
+Solving this problem we get the optimal labor demand choice and maximized profit as:
+\begin{align}
+n(z,W,\epsilon)&=(A_e)^{\frac{1}{1-\gamma}}(\epsilon_e)^{\frac{1}{1-\gamma}} \gamma^{\frac{1}{1-\gamma}}(\frac{1}{W})^{\frac{1}{1-\gamma}}z\\
+\pi(z,W,\epsilon)&=(1-\gamma)(A_e)^{\frac{1}{1-\gamma}}(\epsilon_e)^{\frac{1}{1-\gamma}}\gamma^{\frac{\gamma}{1-\gamma}}(\frac{1}{W})^{\frac{\gamma}{1-\gamma}}z
+\end{align}
+
+
+\bigskip
+
+
+\subsection{Technology for Self-employment}
+The model allow the agent to choose to be self-employed. The self-employed devote part of their time to their own production and can rent the rest to other entrepreneurs to earn a market wage. The model is due to Gollin(2008). 
+\begin{align*}
+y=A_s z^{1-\gamma}\alpha^{\gamma}\epsilon_s
+\end{align*}
+\paragraph{}
+Production function is similar as entrepreneurs' but with a different total factor productivity and a different production shock with $A_s>0$ and $\epsilon_s \in[0,+\infty]$ with c.d.f $F_s(\cdot)$ and p.d.f $f_s(\cdot)$. Gollin argues that self-employed entrepreneurs have an advantage in managerial efficiency relative to full-time entrepreneurs, i.e. $A_s>A_e$. However, I consider the fact that since full-time entrepreneur runs a much larger business (in terms of labor demand) therefore may establish synergy and have a larger TFP. Which force dominates will be selected by the magnitude of estimated TFPs, $A_s$ and $A_e$.
+
+\paragraph{}
+Self-employed agent maximizes his income as follows:
+\begin{align*}
+\pi_s(z,W,\epsilon)&=\max_{n_s} \quad  A_sz^{1-\gamma}n_s^{\gamma}\epsilon_s+W(\beta-n_s)\\
+&s.t. \quad 0 \leq n_s \leq \beta<1
+\end{align*}
+
+\paragraph{}
+$n_s$ denote the labor demand by self-employed and $n_s \leq \beta<1$ is a restriction faced by the self-employed that they have to devote $1-\beta$ amount of time to manage and maintain his business, where $\beta \in [0,1)$. The self-employed agent can hire up to  $\beta$ units of labor and rent his remaining time $\beta$ to other firms or his own business to earn a proportion of wage W. This reflects that many self-employed people operate their own businesses on a part-time basis and at the same time work for other enterprises. 
+
+\paragraph{}
+The solution to the above problem:
+\begin{align}
+n_s(z,W,\epsilon)&=\min\{(A_e)^{\frac{1}{1-\gamma}}(\epsilon_s)^{\frac{1}{1-\gamma}} \gamma^{\frac{1}{1-\gamma}}(\frac{1}{W})^{\frac{1}{1-\gamma}}z,\beta\}\\
+\pi_s(z,W,\epsilon)&= A_s\quad z^{1-\gamma}n_s(z,W,\epsilon)^{\gamma}\epsilon_s+W(\beta-n_s(z,W,\epsilon))
+\end{align}
+
+
+
+
+
+
+\bigskip
+\subsection{Agents' decision problems}
+\paragraph{}
+The agents decision problems could be considered backwards. In the second stage, all agents appearing in Hong Kong including local people and the migrants make the occupational choices between full-time entrepreneur, self-employed entrepreneur and worker to maximize their expected utility. The value for a local agent with the ability preference parameter $(z,\theta)$ is denoted by $\bar{v}_l (z,\theta)$. (Note, consumption needs to be non-negative)
+\begin{align*}
+\bar{v}_l (z,\theta)=&\max \{\int_{\epsilon_e}u(\max\{\pi(z,W,\epsilon_e),0\})\mathrm{d}F(\epsilon_e) , \\&\quad\int_{\epsilon_s}u(\max\{\pi_s(z,W,\epsilon_s),0\})\mathrm{d}F_s(\epsilon_s), \quad u(W)\}
+\end{align*}
+\paragraph{}
+The value for a migrant agent with the ability preference parameter $(z,\theta)$ additional with migration cost $c$ is denoted by $\bar{v}_m (z,\theta,c)$. Since we only consider the utility from second stage, we deduct the cost from the income directly, although in reality the cost should incur before the agent actually moves. 
+\begin{align*}
+\bar{v}_m (z,\theta,c)=&\max \{\int_{\epsilon_e}u(\max\{\pi(z,W,\epsilon_e)-c,0\})\mathrm{d}F(\epsilon_e) , \\&\quad\int_{\epsilon_s}u(\max\{\pi_s(z,W,\epsilon_s)-c,0\})\mathrm{d}F_s(\epsilon_s), \quad u(\max\{W-c,0\})\}
+\end{align*}
+\paragraph{}
+Now consider the first stage, where the mainland agents with $(z,\theta,c)$ choose to migrate or not. I introduce a repatriation rate $1-p$ here, since from 60s to 80s, the border between Hong Kong and Mainland is closed and not all agents choosing to move can succeed arriving in Hong Kong. Hence $p$ denotes the probability that the migrant can stay in Hong Kong, otherwise he has to stay in mainland and earn the wage $W_0$ with the migration cost incurred. In the estimation part, $p$ is a fixed parameter given. Denote the value of a mainland agent by:
+\begin{align*}
+v(z,\theta, c)=max \{p \bar{v}_m(z,\theta,c)+(1-p)u(\max\{W_0-c,0\}), u(W_0)\}
+\end{align*}
+\paragraph{}
+To conclude, mainland agent makes migration choice and occupational choice and get $v(z,\theta, c)$ as value, while local agent only makes occupational choice and his value is $\bar{v}_l (z,\theta)$. For simplicity, I am not considering the possible migration options (such as move to U.S or U.K.) for the local people.
+
+
+\bigskip
+\subsection{Results after solving the model}
+\paragraph{}
+Solving the decision problem of the agents backwards, with simple algebra, we can find the following results. Firstly, given a fixed level of $\theta$, those individuals with the highest ability will become full-time entrepreneurs, while those with the lowest levels will be workers, and people with intermediate level will be self-employed, i.e. part-time manager and part-time worker. This result is consistent with the intuition of Lucas's and Gollin's models. Formally:
+\begin{proposition}
+ $\forall \theta$, $\exists \hat{z}(\theta), \tilde{z}(\theta)$, such that an agent with $(\theta, z)$ will choose to be an entrepreneur iff $z \geq \hat{z}(\theta)$ in the second stage; will choose to be a worker iff $z \leq \tilde{z}(\theta)$; and will choose to be self-employed iff $\tilde{z}(\theta)<z<\hat{z}(\theta)$.
+\end{proposition}
+
+\paragraph{}
+Since agents are also heterogeneous in their preference parameter ($\theta$), which denotes the relative risk aversion, and being entrepreneurs (either full-time or part-time) has a risk due to the production shocks, agents with low $\theta$ are more likely to be entrepreneurs and agents with high $\theta$ are more likely to be workers. Formally:
+\begin{proposition}
+\begin{itemize}
+\item $\hat{z}(\theta)$ and $\tilde{z}(\theta)$ are strictly increasing in $\theta$. 
+\item For sufficiently large z,  an agent with $(\theta, z)$ will choose to be an entrepreneur iff $\theta$ is low enough.
+\item For sufficiently small z, an agent with $(\theta, z)$ will choose to be a worker regardless of $\theta$.
+\end{itemize}
+\end{proposition}
+\bigskip
+
+\subsection{Equilibrium}
+\paragraph{}
+In a competitive equilibrium, the labor market in Hong Kong is clear, i.e. the labor demand from all self-employed entrepreneurs and full-time entrepreneurs should be equal to the labor supply of all workers and the self-employed. 
+\paragraph{}
+Formally, assume the combined the joint distribution of all the agent in Hong Kong after migration decision is $H(\theta,z)$ with p.d.f $h(\theta,z)$. The labor market cleaning condition is
+\begin{align*}
+&\int_{\underline{\theta}}^{\bar{\theta}}(\int_{\hat{z}(\theta)}^{z_{max}}  \: n(z,W,\epsilon_e)h(\theta,z)f(\epsilon_e)\: \mathrm{d}z \mathrm{d}\epsilon_e+ \int_{\tilde{z}(\theta)}^{\hat{z}(\theta)}  \: n_s(z,W,\epsilon_s)h(\theta,z)f(\epsilon_s)\: \mathrm{d}z \mathrm{d}\epsilon_s )\mathrm{d}\theta\\& =\int_{\underline{\theta}}^{\bar{\theta}}\int_{0}^{\hat{z}(\theta)}\: h(\theta,z)\: \mathrm{d}z\mathrm{d}\theta+\int_{\underline{\theta}}^{\bar{\theta}} \int_{\tilde{z}(\theta)}^{\hat{z}(\theta)}  \: (\beta-n_s(z,W,\epsilon_s))h(\theta,z)f(\epsilon_s)\: \mathrm{d}z \mathrm{d}\epsilon_s\mathrm{d}\theta
+\end{align*}
+
+\bigskip
+\bigskip
+
+\section{Data}
+\paragraph{}
+The main data sets I am dealing with contain the 1\% sample of Hong Kong Population Census in the year 1971, 1976 and 1981. The census has been extensively documented by the Census and Statistics Department, Hong Kong.
+
+\paragraph{}
+The population census in Hong Kong includes all persons who were in Hong Kong at the census moment. The operation was conducted by specially trained enumerators using the two-visit method and was preceded by three pilot or trial censuses. There were 21 questions pertaining to personal data and nine concerning household data. The questions were designed to obtain information on four major groups of population characteristics and their interrelation. These groups were housing, demographic, economic and transport. Some of the main variables are listed below: 
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{cc}
+\hline
+\hline
+Economic & Transport\\
+\hline
+Activity Status & Place of Study\\
+Industry &  Place of work\\
+Occupation &Mode of transport\\
+Number of hours worked per week & Time of arrival at work/study\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\paragraph{}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{cc}
+\hline
+\hline
+Housing & Demographic\\
+\hline
+Type of living quarters & Relationship to head\\
+Number of rooms and facilities &  Sex\\
+Number of persons in household &Age\\
+Type of household &Date of birth\\
+Tenure &Place of birth\\
+Rent & Place of Origin\\
+Household Income & Marital status\\
+Car ownership & Number of children\\
+& Language\\
+&Education attainment\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\bigskip
+
+\subsection{Main variables considered}
+
+
+\paragraph{}
+Main variables contained in all three years that I will focus on include age, place of birth, sex, education attainment, industry, occupation, activity status, and income. Additionally, for the 1981 census sample, we also know when the individual moved to Hong Kong, however, the value is restricted to (76, 77, 78, 79, 80, 81 and 99). The total observations for each year respectively are 38283, 42644, and 48117.
+
+\paragraph{}
+According to the immigration and entrepreneur choice problem I am interested, I define some key variables in the following way: 
+\begin{itemize}
+\item Workers are the ones with activity as employee.
+\item Entrepreneurs are the ones with activity as employer.
+\item Self-employed are the ones with activity as self-employed.
+\item Education years are converted from the education classifications in the data guide using the number of years necessary to complete a given level of education.
+\item Definition of mainland immigrants: those who were born in china and in a certain year range: 15 to 55 for 1971 data, 15 to 60 for 1976 data and 15 to 65 for 1981 data. (since i mainly focus on immigration from 1960 to 1981)
+\item The sample is restricted to working people between age 16 and 65
+\item I converge the monthly income to US\$ based on the exchange rate in each year and adjust the income to inflation (base year 2005)
+\item Exclude workers with income too high ($>3000$ US\$)
+\end{itemize}
+\paragraph{}
+Table 1 and Table 2 below show the basic statistics in the sample.
+
+\begin{table}[H]
+\caption{Data Statistics \label{ppd}}
+\begin{center}
+\begin{tabular}{lcccc}
+\hline
+\hline
+Year& 1971 & 1976&1981  \\
+obs&14057&16192&19766\\
+\hline
+No. of immigrants &8001  &7616 &   10038\\
+\% of immigrants &   56.92\% &47.03\%&50.78\%\\
+No. of Entrepreneurs   &384 &506 &751 \\
+\% of Entrepreneurs    &2.803\% &3.125\% & 3.866\%\\
+No. of self-employed   &1160 &1540 &1336 \\
+\% of self-employed    &8.467\% &9.511\% & 6.877\%\\
+\% of Entrepreneurs in immigrants & 3.2\% &4.25\% &5.22\%\\
+\% of Entrepreneurs in local & 2.11\% &2.11\% &2.33\%\\
+\% of self-employed in immigrants & 9.51\% &12.38\% &10.04\%\\
+\% of self-employed in local & 6.59\% &6.93\% &3.37\%\\
+
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\caption{Data Statistics \label{ptf}}
+\begin{center}
+\begin{tabular}{lccc}
+\hline
+\hline
+Year& 1971 & 1976&1981  \\
+obs&14057&16192&19766\\
+\hline
+Mean wage among workers &692.00	&752.00&	1008\\
+Standard deviation &   456.935	&361.043&	805\\
+\hline
+Education years   &6.53 &7.21 &7.11 \\
+Education years in immigrants    &6.18 &6.43&6.26\\
+\hline
+Education years in entrepreneurs& 5.40	&6.06 &6.37\\
+Education years in entrepreneur-immigrants& 5.70&5.82 &5.97\\
+\hline
+Education years in self-employed& 4.33	&5.22&5.39\\
+Education years in self-employed immigrants &4.74&5.04&5.14\\
+Education years in self-employed local &3.85&5.52&5.88\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\paragraph{}
+In particular, the wage distribution of the workers are of interest. The following figure 1 show the wage distribution in all three years and figure 2 displays the wage distribution by age. We see a normal pattern in the wage distribution. 
+
+\begin{figure}[H]
+\begin{centering}
+\caption{Wage Distributions \label{ptf}}
+
+  \includegraphics[height=2.8in]{wage.png}
+  \end{centering}
+\end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\caption{Wage Distributions by age \label{ptf}}
+  \includegraphics[height=2.8in]{wage_age.png}
+  \end{centering}
+\end{figure}
+
+\bigskip
+\subsection{Area specification and data for Mainland China}
+
+\paragraph{}
+Agents' birth places are documented in the Hong Kong census data in 1971 and 1981, which allows me identify who are migrants from which area of mainland China. However, there is no information about when certain migrant moved to Hong Kong. I have to assume that in the one period model all the agent choose to move at the same time. Although there is a more detailed data for the wage and population in mainland china in 1981 rather than in 1971, it is more reasonable to use the 1971 data since almost none of the migrants from 1960 to 1980 will make decisions based on 1981's wage. Hence, in this paper, I will assume all agents make migration decision at the year of 1971 and use 1971's Hong Kong census data and Mainland's population and wage data to calibrate the model.
+
+
+\paragraph{}
+I use the area specification given by the census given by the following table and they are displayed geographically in the following figures:
+\begin{table}[H]
+\caption{Area Specification \label{as}}
+\begin{center}
+\begin{tabular}{lccc}
+\hline
+\hline
+Area No.& Places included & Population  \\
+\hline
+1&Hong Kong&4960000\\
+2&Guangzhou and places adjoining Hong Kong&10192192\\
+3&Sze Yap&2773779\\
+4&Chiu Chau and adjoining Hsiens&8907771\\
+5&Elsewhere in Guangdong Province&23057258\\
+6&Shanghai, Zhejiang Fujian and Jiangsu&109471520\\
+7&Elsewhere in China&697887480\\
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{centering}
+\caption{Areas \label{AA}}
+\begin{subfigure}[b]{0.5\textwidth}
+  \includegraphics[height=2.8in]{area_large.png}
+	\end{subfigure}
+	\qquad
+\begin{subfigure}[b]{0.5\textwidth}
+  \includegraphics[height=2.8in]{area_small.png}
+	\end{subfigure}	
+\end{centering}
+\end{figure}
+
+\paragraph{}
+I got the data of population in different counties in Guangdong Province from China's Development Datasets provided by Universities Service Center for China Studies of The Chinese University of Hong Kong. In 1971, there are no province-by-province data regarding the wage in mainland China. Therefore, I use an average annual income 392 USD in the estimation. This number is calculated by the weighted average of agricultural income and non-agriculture income converted to 2005 USD according to the 1971 exchange rate. In the following table, I show the Number of observation in the census data, migration rate, and rate of three activity types for each area. The migration rate is calculated by the observation in census divided by the comparable proportion of population in that area. For area 6 and area 7, since they contain almost 97\% of the population in China, which is too large for the estimation. I will assume that 50\% of the population in area 6 and 10\% of population in area 7 actually ever considered migration. 
+
+\begin{table}[H]
+\caption{Area Statistics\label{ass}}
+\begin{center}
+\begin{tabular}{lccccc}
+\hline
+\hline
+Area No.& Obs & Entrepreneur\%& Self-employed \% &worker \%& Migration\%  \\
+\hline
+1 &6056 & 0.0211 &0.0659 &0.913 &Non applicable\\
+    
+2	&4449&	0.0258&	0.0980&	0.876 &0.1617\\
+
+
+3	&1346&	0.0193&	0.0824	&0.898& 0.1797\\
+4	&865	&0.0613	&0.136	&0.8023& 0.0360\\
+
+5	&534&	0.0300	&0.1067&	0.8633& 0.00858\\
+
+6&	584	&0.0347&	0.1035&	0.8618& 0.00396\\
+
+7	&132	&0.0367	&0.110&	0.853& 0.00070\\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+\paragraph{}
+It seems that people migrate from further places are more likely to become entrepreneurs. My model captures this by including different moving costs for the agents from different areas. Since in general, agents with higher managerial skill and lower risk aversion tend to become entrepreneurs and on the other hand, agents who choose to migrate should share a similar characteristics due to the fact that migration has a risk of being repatriated. Therefore, agents who choose to migrate has relative low risk aversion distribution and high ability distribution. This kind of "`self-selection"' process alters the post-migration joint distribution of risk-aversion and ability of agents in Hong Kong thus has an impact on the labor market. It is also intuitive that agents moving from other provinces would incur a higher moving cost, which will cause a "`stronger selection"' and therefore have the highest proportion of being entrepreneurs. The reason that average education year is included in the table is to demonstrate that managerial ability in general cannot be reflected by the year of education.
+
+
+
+\section{Calibration}
+\paragraph{}
+I will first calibrate the model by fixing the wage in Hong Kong first. This partial equilibrium approach will help me understand the model see how each parameter changes the outcome. Then I will allow the wage in Hong Kong to be internally determined by the model, i.e. a general equilibrium version in which the model is closed by the labor market clearing condition. General Method of Moments is used in both estimations.
+\bigskip
+\subsection{Assumptions on some distributions and parameters}
+\paragraph{}
+I use some of the parameter values from the literature. The span of control parameter $\gamma$ is 0.7 following the convention. The repatriation rate is approximated by the record of Hong Kong government that in April 1962, out of 100000 people attempted to migrate, 51395 were repatriated. Hence $p=1-51395/100000$. 
+\paragraph{}
+Considering the distribution of managerial ability, it is true that this distribution will be reflected by the firm size (in this case the number of employees hired) predicted by the equilibrium condition of the model. However, due to the lack of firm data, I directly use the results given by Bhattacharya, Guner and Ventura(2012), such that $z$ is distributed log-normally with $\sigma_z=2.285$. I allow the mean of $z$ to be different from mainland agents and local agents. i.e. $\mu_z$(mainland) and $\mu_z l$(local) are to be estimated.
+
+\paragraph{}
+Assuming that the distribution of $\theta$ for mainland agent is normal with mean $\mu_{\theta}$ and standard deviation $\sigma_{\theta}$ and the distribution of $\theta$ for local agent is normal with mean $\mu_{\theta l}$ and standard deviation $\sigma_{\theta l}$. The migration cost of mainland agent in area i is assumed to be distributed log-normally with mean $\mu_{ci}$ and standard deviation $\sigma_c$. $(i=2,3,4,5,6,7)$. Hence I allow the mean cost to be different for different areas but the standard deviations are the same. 
+
+\paragraph{}
+Regarding the distribution of the production shocks, I assume they are distributed log-normally and I allow $\epsilon_e$ and $\epsilon_s$ have different distributions. In addition, assume that$\mu_{\epsilon_e}=0$ There are several parameters to be estimated in the production side: $A_s$, $A_e$, $\sigma_{\epsilon_e}$, $\mu_{\epsilon_s}$, $\sigma_{\epsilon_s}$, and $\beta$. 
+
+\bigskip
+\subsection{Partial Equilibrium Estimation}
+The moment of the GMM estimation of partial equilibrium in this case contains the migration rate for area 2 to 7 and entrepreneur rate and self-employed rate for all 7 areas. Therefore I have 20 moments. The estimation results are displayed in the following two tables:
+
+\begin{table}[H]
+\caption{PE estimation\label{ass}}
+\begin{center}
+\begin{tabular}{lcccccc}
+\hline
+\hline
+&\multicolumn {2}{c}{Migration\%}& \multicolumn{2}{c}{Entrepreneur\%}& \multicolumn {2}{c}{Self-employed \%} \\
+Area No.& Data & Estimated  & Data & Estimated& Data & Estimated \\
+\hline
+
+1  &NA&NA & 0.0211 &0.0223 &0.0659 &0.0525 \\
+    
+2	&	0.1617&0.1720& 0.0258&0.0311&	0.0980&0.0872	 \\
+
+
+3	&0.1797&0.1840& 	0.0193&0.0261&	0.0824	&0.0907 \\
+
+4	&0.0360	&0.0474 &0.0613	&0.0412& 0.136	&0.1025 \\
+
+5	& 0.00858&0.0097&	0.0300&0.0365	&0.1067&0.1045	\\
+
+6	& 0.00396&0.0059&0.0347&0.0380&	0.1035&0.1244\\
+
+7	& 0.00070	&0.0008&0.0367&0.0423	&0.110&	0.1303\\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\paragraph{}
+The estimated parameter values are as follows:
+\begin{align*}
+\mu_z&=-0.9782  \quad \mu_{zl}=-0.2102  \quad \mu_{\theta}= 2.3033  \quad \sigma_{\theta}=0.9996 \quad   \mu_{\theta l}=2.7309 \quad \sigma_{\theta l}=1.1911\\
+\mu_{c2}&=174.7629 \quad \mu_{c3}=167.8512 \quad \mu_{c4}= 307.6982 \quad \mu_{c5}=427.5337 \\
+ \mu_{c6}&= 461.5715 \quad \mu_{c7}= 543.0653  \quad \sigma_c=180.0583  \\
+A_e&=2.4025  \quad  A_s=0.0895 \quad    \sigma_{\epsilon_e}=5.4248 \quad, \mu_{\epsilon_s}=-5.6018 \quad, \sigma_{\epsilon_s}=17.1535 \quad \text{and } \beta=0.2606. 
+\end{align*}
+
+
+
+\pagebreak
+
+\section{Outline for the work to be done}
+\begin{itemize}
+\item Estimate the GE Model 
+\item Could do comparative statics. Change the value of P to see the change of outcome. This may have influence on the immigration policy
+\item Introduce geographic discrimination and evaluate results on the labor market eq wage and occupational choice of local people
+\end{itemize}
+
+\pagebreak
+
+\begin{thebibliography}{56}
+
+\bibitem{bhattacharya12}
+ Dhritiman Bhattacharya and Nezih Guner and Gustavo Ventura,
+  \emph{Distortions, Endogenous Managerial Skills and Productivity Differences,}.
+  Working Papers 673, Barcelona Graduate School of Economics.
+  2012.
+
+\bibitem{csd71}
+ Census and Statistics Department,
+  \emph{1971 Population Census}.
+	Census and Statistics Department Hong Kong SAR
+  1971.
+
+\bibitem{csd76}
+ Census and Statistics Department,
+  \emph{1976 Population Census}.
+	Census and Statistics Department Hong Kong SAR
+  1976.
+	
+\bibitem{eric12}
+ Strobl, Eric and Valfort, Marie-Anne,
+  \emph{The Effect of Weather-Induced Internal Migration on Local Labor Markets: Evidence from Uganda}.
+  IZA Discussion Papers 6923, Institute for the Study of Labor (IZA).
+  2012.
+
+\bibitem{friedberg01}
+ Rachel M. Friedberg,
+ \emph{The Impact Of Mass Migration On The Israeli Labor Market}.
+ The Quarterly Journal of Economics, MIT Press, vol. 116(4), pages 1373-1408, November.
+ 2001.
+
+\bibitem{gallin04}
+ Joshua Hojvat Gallin,
+  \emph{Net Migration and State Labor Market Dynamics}.
+  Journal of Labor Economics, University of Chicago Press, vol. 22(1), pages 1-22, January.
+  2004.
+
+\bibitem{hsieh05}
+ Chang-Tai Hsieh and Keong T. Woo,
+  \emph{The Impact of Outsourcing to China on Hong Kong's Labor Market}.
+  American Economic Review, American Economic Association, vol. 95(5), pages 1673-1687, December.
+  2005.
+
+\bibitem{jean92}
+  Olivier Jean Blanchard and Lawrence F. Katz,
+  \emph{Regional Evolutions," Brookings Papers on Economic Activity}.
+  Economic Studies Program, The Brookings Institution, vol. 23(1), pages 1-76
+  1992.
+	
+\bibitem{kanbur79}
+ Kanbur, S M,
+  \emph{Of Risk Taking and the Personal Distribution of Income}.
+  Journal of Political Economy, University of Chicago Press, vol. 87(4), pages 769-97, August.
+  1979.
+
+
+\bibitem{kennan03}
+ John Kennan and James R. Walker,
+  \emph{The Effect of Expected Income on Individual Migration Decisions}.
+  NBER Working Papers 9585, National Bureau of Economic Research, Inc.
+  2003.
+
+
+	
+
+
+\bibitem{volker12}
+ Grossmann, Volker and Stadelmann, David,
+ \emph{Wage Effects of High-Skilled Migration: International Evidence}.
+ IZA Discussion Papers 6611, Institute for the Study of Labor (IZA).
+  2012.
+	
+\bibitem{Gollin08}
+
+Gollin, Douglas
+ \emph{Nobody's business but my own: Self-employment and small enterprise in economic development}.
+ Journal of Monetary Economics, Elsevier, vol. 55(2), pages 219-233, March. 2008
+	
+\end{thebibliography}
+
+\end{document}
