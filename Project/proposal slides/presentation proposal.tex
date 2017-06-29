@@ -1,0 +1,242 @@
+\documentclass{beamer}
+
+\mode<presentation> 
+
+\usetheme{Madrid}
+
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage[flushleft]{threeparttable}
+\usepackage{geometry}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\setlength{\pdfpagewidth}{8.5in} 
+\setlength{\pdfpageheight}{11in}
+\beamertemplatenavigationsymbolsempty
+% Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Network Science Project Proposal]{SU17: NETWORK SCIENCE: 13951
+\\ \medskip
+\text{Revisit The Structure of Scientific Collaboration Networks}
+\medskip
+\text{Using PubMed Data}}
+
+\author{Min Chen} % Your name
+\institute[Indiana University] {Indiana University}
+\date{June 2017} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\begin{frame}
+\center{\Large Introduction}
+\end{frame}
+
+\begin{frame}
+\frametitle{Abstract}
+\begin{itemize}
+\item Plans to implement the methods and techniques established by Newman(2000, 2011)
+\item Replicate the results of the paper using self-downloaded PubMed data
+\item Extension1: Evaluate the evolution of the collaboration network 
+\item Extension2: Consider the potential differences of sub-networks formed by authors of articles related to magraine or some other diseases.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+%------------------------------------------------
+\begin{frame}\frametitle{Foundation Papers: Newman(2000, 2001)}
+\begin{itemize}
+\item Datasets
+\begin{enumerate}
+	\item MEDLINE (biomedical research)
+	\item The Los Alamos e-Print Archive (physics)
+	\item NCSTRL (computer science)
+\end{enumerate}
+\item Dataset span: from 1995 to 1999
+\item Key concepts discussed: small world property, degree distribution, clustering and centrality
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Key results of  Newman(2000, 2001) }
+\begin{itemize}
+\item All 3 scientific collaboration networks establish a small-world property and the degree of separation is about five or six.
+\item The network is highly clustered however, the MEDLINE data has a much lower value than the other two "hard science" sources
+\item The degree distributions follows a power-law form with an exponential cutoff.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Proposed Project}
+\begin{itemize}
+\item Nature: combination of data-driven project and replication project
+\item PubMed Data obtained:
+	\begin{itemize}
+		\item 25,000 paper regarding the disease migraine (more are coming)
+		\item similar to MEDLINE data in nature, part of Newman's results can be tested
+		\item time span from 1946 to 2016, possible to study the evolution of the network
+		\item trying to download data from other diseases, such as cancer, will compare network in different sub areas of biomedical field
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Proposed Project (cont'd)}
+\begin{itemize}
+\item Goal: Newman's paper covers almost all the key concepts in the network science course and replication of this paper using a self generated dataset could be a good practice to help understanding these concepts. Some extensions mentioned will provide an opportunity to  learn network science in a more efficient and self-motivated way.
+\end{itemize}
+\end{frame}
+
+
+\section{Literature review}
+
+\begin{frame}
+\center{\Large Literature review}
+\end{frame}
+
+
+\begin{frame}\frametitle{Related Studies and Main Results}
+\begin{itemize}
+\item Measure of strength of collaborative ties, which turns the network into a weighted one (Newman, 2001)
+\item Relevant country-specific kinship trends over time and found that authors who are part of a kin tend to occupy central positions in their collaborative networks (Prosperi et al. 2016)
+\item Convergence of international collaboration patterns between the applied and basic sciences (Cocciaa and Wang 2016) 
+\item Super ties contribute to above-average productivity and a 17\% citation increase per publication, thus being a major factor in science career development. (Petersen 2015)
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Collaboration Network in Specific Fields}
+	\begin{itemize}
+		\item Co-authorships in economic history are more likely to be formed of individuals of different seniority as compared to economics generally (Seltzer and Hamermesh 2017)
+		\item Large-scale social structure of the music industry (Budner and Grahl 2016)
+		\item Small-world property in collaboration networks in accounting research (Andrikopoulos and Kostaris 2016) 
+	\end{itemize}
+\end{frame}
+
+
+\section{Methods and Plan}
+\begin{frame}
+\center{\Large Methods and Plan}
+\end{frame}
+
+\subsection{Data}
+\begin{frame}\frametitle{Data: Obtained}
+\begin{enumerate}
+\item  PubMed data regarding disease migraine.
+	\begin{itemize}
+		\item 24853 records (papers)
+		\item 55764 authors
+		\item Scope: all migraine related research paper on PubMed from 12/1/1946 to 8/23/2016
+	\end{itemize}
+\item PubMed data regarding cancer (Ongoing downloading)
+	\begin{itemize}
+		\item 150756 records (papers) so far
+		\item Scope: all cancer related research paper on PubMed from 9/1/2016 to 06/2017
+		\item Progress: download month by month, hope to get to all data back to 1946
+	\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Data: Potential}
+\begin{itemize}
+\item Get the data related to some other diseases, like diabetes, hypertension, headache, etc
+\item Get the data from PubMed in a limited time span, for example 2011/01/01 to 2016/01/01 regardless of the topics. (This may require a lot more time, perhaps cannot be done before the summer term ends)
+\end{itemize}
+\end{frame}
+
+\subsection{Methods}
+\begin{frame}\frametitle{Methods: Replication Part}
+	\begin{itemize}
+\item Apply the methods presented by Newman(2000) to calculate the main statistics and structure of the collaboration network 
+\item Key statistics and structure concepts include: average degree, degree distribution\footnote{Whether it follows a power law with cut-off}, average shortest path length, centrality etc. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Methods: Extension Part}
+	\begin{itemize}
+		\item  Explore the evolution of the network across time
+		\item  Check if the structures are different for different sub-fields including the whole network regardless the topic. 
+		\item Implement the network in a weighted undirected graph and explore the properties. \footnote{According to Newman(2011)}
+	\end{itemize}
+\end{frame}
+
+\section{References}
+\begin{frame}
+	\center{\Large References}
+\end{frame}
+
+\begin{thebibliography}{56}
+	\bibitem{andri2017}
+	Andreas Andrikopoulos and Konstantinos Kostaris,
+	\emph{Collaboration networks in accounting research}.
+	Journal of International Accounting, Auditing and Taxation, Volume 28, 2017, Pages 1-9, ISSN 1061-9518, https://doi.org/10.1016/j.intaccaudtax.2016.12.001.
+	
+	\bibitem{budner2016}
+	Budner, Pascal and Jörn Grahl,
+	\emph{Collaboration Networks in the Music Industry}.
+	CoRR abs/1611.00377 (2016): n. pag.
+	
+	\bibitem{coccia2016}
+	Mario Coccia and Lili Wang,
+	\emph{Evolution and convergence of the patterns of international scientific collaboration}.
+	PNAS 2016 113 (8) 2057-2061; published ahead of print February 1, 2016, doi:10.1073/pnas.1510820113
+	
+	\bibitem{newman2000}
+	M. E. J. Newman,
+	\emph{The structure of scientific collaboration networks}.
+	PNAS 2000 98 (2) 404-409; doi:10.1073/pnas.98.2.404
+	
+	\bibitem{newman2001}
+	M. E. J. Newman,
+	\emph{Scientific collaboration networks. I. Network construction and fundamental results.}.
+	Phys. Rev. E 64 , no. 1 (2001): 016131.
+	
+	\bibitem{newman2001_2}
+	M. E. J. Newman,
+	\emph{Scientific collaboration networks. II. Shortest paths, weighted networks, and centrality.}.
+	Phys. Rev. E 64 , no. 1 (2001): 016132.
+	
+	\bibitem{prosperi2016}
+	Mattia Prosperi, Iain Buchan, Iuri Fanti, Sandro Meloni, Pietro Palladino, and Vetle I. Torvik,
+	\emph{Kin of coauthorship in five decades of health science literature}.
+	PNAS 2016 113 (32) 8957-8962; published ahead of print July 25, 2016, doi:10.1073/pnas.1517745113
+	
+	
+	\bibitem{peterson2015}
+	Alexander Michael Petersen,
+	\emph{Quantifying the impact of weak, strong, and super ties in scientific careers}.
+	PNAS 2015 112 (34) E4671-E4680; published ahead of print August 10, 2015, doi:10.1073/pnas.1501444112
+	
+	\bibitem{seltzer2017}
+	Seltzer, Andrew and Hamermesh, Daniel S.,
+	\emph{Co-Authorship in Economic History and Economics: Are We Any Different?}.
+	(May 2017). NBER Working Paper No. w23404. Available at SSRN: https://ssrn.com/abstract=2968242
+	
+\end{thebibliography}
+\end{document}
