@@ -17,5 +17,6 @@ for idx, row in data.iterrows():
     if not G.has_node(row.author2):
         G.add_node(row.author2)
     G.add_edge(row.author1,row.author2)
+
 print(nx.info(G))
 nx.write_gml(G,relativepath + "/data/migraine_authors.gml")
